@@ -45,8 +45,7 @@ def exe_case(x):
     此时python不会把null认为是none，python会把null识别为一个变量，所以需要给null赋值为空，
     不然会报"NameError: name ‘null’ is not defined"，或者用json.loads(str)的方法将字符串转换成对象
     '''
-    #null = ''
-    #print(test_result('000000', str(eval(response.text)['statusCode']), x))
+    
     k = test_result('000000', json.loads(response.text)['statusCode'], x)
     print(k, end = "|")
     report.append(k)
