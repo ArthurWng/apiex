@@ -20,7 +20,7 @@ def test_result(expect, actual,k):
         test_info = cases['case_type'][k] +"-"+cases['case_name'][k]+ ": \033[31m测试失败\033[0m"
         return test_info
 
-# 执行用例函数，先用pandas从本地excel表中获取api的url、data信息，然后用requests.session访问接口
+# 执行用例函数，先用pandas从本地excel表中获取api的url、data信息，然后用requests.session访问接口，最后将测试结果信息，放到报告中。
 def exe_case(x):
     url = cases['env_host'][0] + cases['api_url'][x]
 
@@ -53,10 +53,12 @@ def exe_case(x):
 
 if __name__ == '__main__':
 
+    # 获取CPU执行开始时间
     total_start = time.perf_counter()
-    for i in range(cases.index.size):
+
+    for i in range(cases.index.size): # 获取数组大小
         start = time.perf_counter()
-        exe_case(i)
+        exe_case(i) # 执行用例
         end = time.perf_counter()
         print("%6.3fs' " % (end-start))
     total_end = time.perf_counter()
