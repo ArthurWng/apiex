@@ -10,6 +10,7 @@ cases = pd.read_excel('api_test.xlsx')
 s = requests.session()
 report = []
 
+# 断言函数，如果实际返回值和期望值一致，则判断测试通过，否则反之
 def test_result(expect, actual,k):
     if expect==actual:
         #test_info = cases['case_type'][k] +"_"+cases['case_name'][k]+ ": \033[32m测试通过\033[0m"
@@ -19,6 +20,7 @@ def test_result(expect, actual,k):
         test_info = cases['case_type'][k] +"-"+cases['case_name'][k]+ ": \033[31m测试失败\033[0m"
         return test_info
 
+# 执行用例函数，先用pandas从本地excel表中获取api的url、data信息，然后用requests.session访问接口
 def exe_case(x):
     url = cases['env_host'][0] + cases['api_url'][x]
 
