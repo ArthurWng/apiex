@@ -6,7 +6,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 import pandas as pd
 
-cases = pd.read_excel('api_test.xlsx')
+cases = pd.read_excel('api_test.xlsx') # 读取excel信息
 s = requests.session()
 report = []
 
