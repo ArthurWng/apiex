@@ -7,7 +7,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 import pandas as pd
 
 cases = pd.read_excel('api_test.xlsx') # 读取excel信息
-s = requests.session()
+s = requests.session() # 实例化session
 report = []
 
 # 断言函数，如果实际返回值和期望值一致，则判断测试通过，否则反之
